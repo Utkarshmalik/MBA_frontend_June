@@ -5,7 +5,8 @@ import { useEffect } from "react";
 
 export const useAuth=()=>{
 
-    const initialStates = { userId: "", password: "" };
+    const initialStates = { userId: "", password: ""};
+
 
     const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ export const useAuth=()=>{
         navigate("/client");
       }
       else {
-        navigate("/customer");
+        navigate("/");
       }
     }
 
@@ -36,10 +37,14 @@ export const useAuth=()=>{
 
    
 
-    const onLogin = async (values, { setSubmitting }) => {
+    const onLogin = async (values, props) => {
+      console.log(props);
             const userDetails = {userId:values.userId, password:values.password};
             const loginResponse = await signIn(userDetails);
-            setSubmitting(false);
+            console.log(loginResponse);
+            props.setSubmitting(false);
+            props.setErrors({ result: "Invalid password" });
+
             redirect();
 
     }

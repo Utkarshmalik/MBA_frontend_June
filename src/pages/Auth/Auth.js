@@ -38,9 +38,12 @@ function Auth(){
 
              />
              <ErrorMessage name="password" component="div" />
-             <button className="form-control m-2"  type="submit" disabled={isSubmitting}>
+             <button className="form-control m-2" name="submitButton" type="submit" disabled={isSubmitting}>
                Submit
              </button>
+
+             <span> {} </span>
+
            </Form>
          )}
        </Formik>
