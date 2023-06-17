@@ -4,6 +4,7 @@ import Navbar from "../../../components/Navbar/Navbar";
 import { getAllMovies } from "../../../api/movie.api";
 import { CSpinner } from "@coreui/react";
 import MovieCard from "../../../components/MovieCard/MovieCard";
+import MovieList from "../../../components/MovieList/MovieList";
 
 
 function LandingPage(){
@@ -23,9 +24,6 @@ function LandingPage(){
         fetchMovies();
     },[])
 
-    const getMoviesData=()=>{
-        return moviesData.map((movie)=><MovieCard MovieDetail={movie}/>)
-    }
 
     return <div>
         <Navbar/>
@@ -33,10 +31,9 @@ function LandingPage(){
 
         <div className="text-center">
 
-            <h2> Recommended Movies </h2>
 
             {
-                (moviesData===null ?  <CSpinner color="primary" variant="grow"/> : getMoviesData() )
+                (moviesData===null ?  <CSpinner color="primary" variant="grow"/> : <MovieList moviesData={moviesData} /> )
             }
 
 
