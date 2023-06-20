@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "6c97b2df-a47c-4606-b7f5-c57239a4207a",
+		"name": "CRM Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaWF0IjoxNjc4NDYwNTg4LCJleHAiOjE2Nzg1NDY5ODh9.hFIgyXaQMaalYe64FLCv0z5SwoeqwaIDxZxdT9LUISo",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://crm-application-zysm.onrender.com/crm/api/v1/users",
+							"protocol": "https",
+							"host": [
+								"crm-application-zysm",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Rahul\",\n    \"userId\":\"rahul123\",\n    \"email\":\"rahul@amazon.com\",\n    \"password\":\"qwerty1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/users/63f63ab153195ea4d7a5a037",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"users",
+								"63f63ab153195ea4d7a5a037"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User bu userId",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaWF0IjoxNjg0NTg0Mjc4LCJleHAiOjE2ODQ2NzA2Nzh9.C5a4u87m9gJoABqWArFRPQryoZUR9gD4PXRx5iazOTo",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"status\":\"APPROVED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/users/6468b52e590b7ed9d33b40f0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"users",
+								"6468b52e590b7ed9d33b40f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"engineer12345\",\n    \"userId\":\"engineer12345\",\n    \"email\":\"engineer12345@amazon.com\",\n    \"userType\":\"ENGINEER\",\n    \"password\":\"qwerty123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn as Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"utmalik\",\n    \"password\":\"qwerty1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://crm-application-zysm.onrender.com/crm/api/v1/auth/signin",
+							"protocol": "https",
+							"host": [
+								"crm-application-zysm",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn as Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"admin\",\n    \"password\":\"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://crm-application-zysm.onrender.com/crm/api/v1/auth/signin",
+							"protocol": "https",
+							"host": [
+								"crm-application-zysm",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn as engineer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\":\"engineer12345\",\n    \"password\":\"qwerty123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Create a new ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InV0bWFsaWsiLCJpYXQiOjE2Nzc1MDkzMjYsImV4cCI6MTY3NzU5NTcyNn0.CPKbkLXRy2N_jpKinHvbqDODsGJyhz3uQd2zuz5dr7U",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Order not delivered\",\n    \"ticketPriority\":3,\n    \"description\":\"Order:1242352454363 , This is not yet delivered. Please check with high priority . Thanks\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tickets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaWF0IjoxNjc3NjgyNzQ0LCJleHAiOjE2Nzc3NjkxNDR9.2lUOgWym_2qHU2p2MUgHvXNIZvHZYVCl7ABONcLc5gM",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/tickets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"tickets"
+							],
+							"query": [
+								{
+									"key": "x-access-to",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InV0bWFsaWsiLCJpYXQiOjE2Nzc2ODI2NzMsImV4cCI6MTY3Nzc2OTA3M30.jPHLVgx7VdfNHkVVWLBjBQDkcS-e1JeSPKByzWeJ79Y",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a ticket by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InV0bWFsaWsiLCJpYXQiOjE2Nzc2ODI2NzMsImV4cCI6MTY3Nzc2OTA3M30.jPHLVgx7VdfNHkVVWLBjBQDkcS-e1JeSPKByzWeJ79Y",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/tickets/63f9a9c32d46ae8e570eadc0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"tickets",
+								"63f9a9c32d46ae8e570eadc0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ticket by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVuZ2luZWVyMTIzNDUiLCJpYXQiOjE2Nzc2ODUzODksImV4cCI6MTY3Nzc3MTc4OX0.bagvLmshb3pcVvpLZojtTTNDXWj-UV-qgWuAaIztUWc",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"CLOSED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/crm/api/v1/tickets/63f9a9c32d46ae8e570eadc0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"crm",
+								"api",
+								"v1",
+								"tickets",
+								"63f9a9c32d46ae8e570eadc0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
