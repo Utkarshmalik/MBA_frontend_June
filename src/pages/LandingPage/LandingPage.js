@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Carousel from "../../../components/Carousel/Carousel";
-import Navbar from "../../../components/Navbar/Navbar";
-import { getAllMovies } from "../../../api/movie.api";
+import Carousel from "../../components/Carousel/Carousel";
+import Navbar from "../../components/Navbar/Navbar";
+import { getAllMovies } from "../../api/movie.api";
 import { CSpinner } from "@coreui/react";
-import MovieCard from "../../../components/MovieCard/MovieCard";
-import MovieList from "../../../components/MovieList/MovieList";
+import MovieCard from "../../components/MovieCard/MovieCard";
+import MovieList from "../../components/MovieList/MovieList";
 
 
 function LandingPage(){

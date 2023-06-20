@@ -1,14 +1,17 @@
 
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from 'react-router-dom';
 
 function MovieCard({movie}){
 
-    const {name,description,posterUrl} = movie;
+    const {name,description,posterUrl, language, casts, director,_id} = movie;
 
     console.log(posterUrl);
 
-    return  <Card className='mx-3 my-3' style={{ width: '18rem', border:"1px solid black"}} >
+    return  <>
+    <Link key={_id} to={`/movie/${_id}/details`}>
+     <Card className='mx-3 my-3' style={{ width: '18rem', border:"1px solid black"}} >
       <Card.Img style={{height:"25rem"}} variant="top" src={posterUrl} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
@@ -17,16 +20,34 @@ function MovieCard({movie}){
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>Language </ListGroup.Item>
-        <ListGroup.Item>Description</ListGroup.Item>
-        <ListGroup.Item>Cast</ListGroup.Item>
+        <ListGroup.Item className='d-flex justify-content-between'>
+          <span style={{fontWeight:600}} className='text-justify'>Language </span>     
+          <span> {language} </span>               
+          </ListGroup.Item>
+        <ListGroup.Item className='d-flex justify-content-between'>
+
+            <span style={{fontWeight:600}} className='text-justify'>Director </span>     
+          <span> {director} </span> 
+
+        </ListGroup.Item>
+        <ListGroup.Item className='d-flex justify-content-between'>
+           <span style={{fontWeight:600}} className='text-justify'>Cast </span>     
+          <span  className='font-weight-bold' >  {casts.join(', ')} </span> 
+       </ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Likes 500k</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+
+        <div style={{fontSize:"1.5rem"}} className='d-flex align-items-center justify-content-between'>
+         <i className='bi bi-hand-thumbs-up-fill text-success'> 60K </i>  
+        <Card.Link href="#">See Trailer<i class="bi bi-arrow-right-circle"></i> </Card.Link>
+        </div>
+        
       </Card.Body>
     </Card>
 
+    </Link>
+    </>
+   
 }
 
 export default MovieCard;

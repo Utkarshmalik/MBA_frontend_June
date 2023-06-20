@@ -18,3 +18,19 @@ export const getAllMovies = async ()=>{
     console.log(err);
    }
 }
+
+export const getMovieById = async (id)=>{
+
+    try{
+    const res= await axios.get(`${BASE_URL}/mba/api/v1/movies/${id}`,{headers:{
+        'x-access-token':localStorage.getItem(TOKEN)
+    }})
+
+    return res;
+
+   }
+   catch(err){
+    throw new Error("internal Error")
+    console.log(err);
+   }
+}
