@@ -6,6 +6,22 @@ import { getAllBookings } from "../../api/bookings.api";
 import { getAllUsers } from "../../api/users.api";
 import CardList from "../../components/CardList/CardList";
 import { keys } from "../../utils/constants";
+import { Cell, Column, HeaderCell, Table } from "rsuite-table";
+
+
+
+const dataList = [
+  { id: 1, name: 'a', email: 'a@email.com', avartar: '...' },
+  { id: 2, name: 'b', email: 'b@email.com', avartar: '...' },
+  { id: 3, name: 'c', email: 'c@email.com', avartar: '...' }
+];
+
+const ImageCell = ({ rowData, dataKey, ...rest }) => (
+  <Cell {...rest}>
+    <img src={rowData[dataKey]} width="50" />
+  </Cell>
+);
+
 
 
 export const WidgetContext = createContext();
@@ -101,7 +117,7 @@ function Admin(){
     <Navbar/>
 
     <div className="bg-light  container-fluid p-3">
-
+        
         <h3 className="text-center"> Welcome , {localStorage.getItem('name')}! </h3>
         <p className="text-center text-secondary"> Take a quick look at your stats below </p>
 
@@ -109,13 +125,150 @@ function Admin(){
         <CardList counterInfo={counterInfo}/>
         </WidgetContext.Provider>
 
-         { showTheatresTable && <div> Table 1  </div> }
-         { showMoviesTable && <div> Table 2  </div> }
-         { showBookingsTable && <div> Table 3  </div> }
-         { showUsersTable && <div> Table 4  </div> }
 
 
+         { showTheatresTable &&    
 
+         <>
+      
+         <h3 className="m-3">  Theatres </h3>
+
+         <Table  data={theatresList}>
+
+                <Column flexGrow={1}  sortable fixed resizable>
+                <HeaderCell>ID</HeaderCell>
+                <Cell dataKey="_id" />
+                </Column>
+
+                <Column flexGrow={1}  sortable resizable>
+                <HeaderCell>Name</HeaderCell>
+                <Cell dataKey="name" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>Description</HeaderCell>
+                    <Cell dataKey="description" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>PinCode</HeaderCell>
+                    <Cell dataKey="pinCode" />
+                </Column>
+
+                <Column  flexGrow={1}  sortable resizable>
+                <HeaderCell>City</HeaderCell>
+                    <Cell dataKey="city" />
+                </Column>
+  </Table>
+     </>
+                            
+        
+         }
+         { showMoviesTable && 
+         
+           <>
+      
+         <h3 className="m-3">  Movies </h3>
+
+         <Table  data={theatresList}>
+
+                <Column flexGrow={1}  sortable fixed resizable>
+                <HeaderCell>ID</HeaderCell>
+                <Cell dataKey="_id" />
+                </Column>
+
+                <Column flexGrow={1}  sortable resizable>
+                <HeaderCell>Name</HeaderCell>
+                <Cell dataKey="name" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>Description</HeaderCell>
+                    <Cell dataKey="description" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>PinCode</HeaderCell>
+                    <Cell dataKey="pinCode" />
+                </Column>
+
+                <Column  flexGrow={1}  sortable resizable>
+                <HeaderCell>City</HeaderCell>
+                    <Cell dataKey="city" />
+                </Column>
+  </Table>
+     </>
+     }
+         { showBookingsTable && 
+         
+           <>
+      
+         <h3 className="m-3">  Boookings </h3>
+
+         <Table  data={theatresList}>
+
+                <Column flexGrow={1}  sortable fixed resizable>
+                <HeaderCell>ID</HeaderCell>
+                <Cell dataKey="_id" />
+                </Column>
+
+                <Column flexGrow={1}  sortable resizable>
+                <HeaderCell>Name</HeaderCell>
+                <Cell dataKey="name" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>Description</HeaderCell>
+                    <Cell dataKey="description" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>PinCode</HeaderCell>
+                    <Cell dataKey="pinCode" />
+                </Column>
+
+                <Column  flexGrow={1}  sortable resizable>
+                <HeaderCell>City</HeaderCell>
+                    <Cell dataKey="city" />
+                </Column>
+  </Table>
+     </>
+         }
+         { showUsersTable && 
+         
+           <>
+      
+         <h3 className="m-3">  Users </h3>
+
+         <Table  data={theatresList}>
+
+                <Column flexGrow={1}  sortable fixed resizable>
+                <HeaderCell>ID</HeaderCell>
+                <Cell dataKey="_id" />
+                </Column>
+
+                <Column flexGrow={1}  sortable resizable>
+                <HeaderCell>Name</HeaderCell>
+                <Cell dataKey="name" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>Description</HeaderCell>
+                    <Cell dataKey="description" />
+                </Column>
+
+                <Column flexGrow={1}   sortable resizable>
+                <HeaderCell>PinCode</HeaderCell>
+                    <Cell dataKey="pinCode" />
+                </Column>
+
+                <Column  flexGrow={1}  sortable resizable>
+                <HeaderCell>City</HeaderCell>
+                    <Cell dataKey="city" />
+                </Column>
+  </Table>
+     </>
+         }
 
        </div>
 
