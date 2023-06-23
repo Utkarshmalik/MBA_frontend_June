@@ -9,3 +9,11 @@ export const userTypes =  {
     CUSTOMER : "CUSTOMER",
     CLIENT : "CLIENT"
 }
+
+
+export const keys = {
+    MOVIE:"MOVIE",
+    THEATRE:"THEATRE",
+    BOOKING:"BOOKING",
+    USER:"USER"
+}
