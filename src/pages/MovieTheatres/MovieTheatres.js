@@ -28,6 +28,7 @@ const MovieTheatres=()=>{
         getTheatres();
         getMovieDetails();
         setIsLoading(false);
+        console.log(movieDetails);
     },[])
 
     return <div>
@@ -37,12 +38,13 @@ const MovieTheatres=()=>{
         {isLoading && <Spinner/>}
 
         {
+
         
-        !isLoading && <div className="bg-black">
+        !isLoading && <div className="bg-black text-center py-4">
 
             <h2 className="fw-bolder text-white"> {movieDetails.name} </h2>
 
-                <div>
+                <div className="text-white">
                     <span> {movieDetails.description} </span>
 
                     <div className="text-white">
@@ -59,7 +61,20 @@ const MovieTheatres=()=>{
 
                     </div>
 
-        </div>
+                              <div>
+
+                        {
+                            theatresDetail.map((theatre)=>{
+                                return <h1> {theatre.name} </h1>
+                            })
+                        }
+                     </div>
+
+
+             
+                    </div>
+
+                 
 
         }
         <div>
