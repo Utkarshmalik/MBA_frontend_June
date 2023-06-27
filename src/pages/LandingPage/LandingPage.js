@@ -12,7 +12,7 @@ function LandingPage(){
     const [moviesData, setMoviesData] = useState(null);
     
     const fetchMovies= async ()=>{
-  try{
+  try{ 
         const movies = await getAllMovies();
         setMoviesData(movies.data);
         }
