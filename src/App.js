@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import MovieDetails from './pages/MovieDetails/MovieDetails';
 import MovieTheatres from './pages/MovieTheatres/MovieTheatres';
 import Admin from './pages/Admin/Admin';
+import Booking from './pages/Bookings/Booking';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" element={<LandingPage/>} />
           <Route exact path="/movie/:movieId/details" element={ <MovieDetails/>} />
           <Route exact path="/buyTickets/:movieId" element={ <MovieTheatres/>} />
+          <Route exact path="/buyTickets/:movieId/:theatreId" element={ <Booking/>} />
           <Route exact path="/admin" element={ <Admin/>} />
 
         </Routes>

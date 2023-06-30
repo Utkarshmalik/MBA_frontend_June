@@ -8,7 +8,7 @@ export const signIn = async (user)=>{
     try{
      const response = await axios.post(`${BASE_URL}/mba/api/v1/auth/signin`, user);
 
-     const {name, email , userId, userTypes, status, accessToken} = response.data;
+     const {name, email , userId, userTypes, status, accessToken, _id} = response.data;
 
      if(accessToken){
 
@@ -17,6 +17,7 @@ export const signIn = async (user)=>{
         localStorage.setItem("email",email);
         localStorage.setItem("userTypes",userTypes);
         localStorage.setItem("token", accessToken);
+        localStorage.setItem("id", _id);
      }
 
      return response.data;

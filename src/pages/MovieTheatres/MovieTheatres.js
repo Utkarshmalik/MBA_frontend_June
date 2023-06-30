@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getTheatresForAMovie } from "../../api/theatres.api";
 import { Spinner } from "react-bootstrap";
 import { getMovieById } from "../../api/movie.api";
+import TheatreDetails from "../../components/TheatreDetails/TheatreDetails";
 
 
 
@@ -17,18 +18,23 @@ const MovieTheatres=()=>{
     const getTheatres = async () => {
         const theatresData= await   getTheatresForAMovie(selectedMovie);
         setTheatersDetails(theatresData.data);
+
     }
 
     const getMovieDetails = async ()=>{
         const movieDetails = await getMovieById(selectedMovie);
+        console.log(movieDetails);
         setMovieDetails(movieDetails.data);
+
+    }
+
+    const init=async ()=>{
+          await Promise.all([getTheatres(), getMovieDetails()]);
+          setIsLoading(false);
     }
 
     useEffect(()=>{
-        getTheatres();
-        getMovieDetails();
-        setIsLoading(false);
-        console.log(movieDetails);
+        init();
     },[])
 
     return <div>
@@ -40,7 +46,7 @@ const MovieTheatres=()=>{
         {
 
         
-        !isLoading && <div className="bg-black text-center py-4">
+        !isLoading && <div style={{minHeight:"100vh"}} className="bg-black text-center pt-4">
 
             <h2 className="fw-bolder text-white"> {movieDetails.name} </h2>
 
@@ -61,14 +67,10 @@ const MovieTheatres=()=>{
 
                     </div>
 
-                              <div>
+                    <div style={{width:"70vw", margin:"0 auto"}} className="bg-white">
 
-                        {
-                            theatresDetail.map((theatre)=>{
-                                return <h1> {theatre.name} </h1>
-                            })
-                        }
-                     </div>
+                        <TheatreDetails theatresDetail={theatresDetail} selectedMovie={selectedMovie} />
+                    </div>
 
 
              

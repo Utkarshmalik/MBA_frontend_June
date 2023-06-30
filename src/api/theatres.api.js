@@ -34,3 +34,19 @@ export const getTheatresForAMovie = async (movieId)=>{
    }
 
 }
+
+export const getTheatresById = async (theatreId)=>{
+
+       try{
+    const res= await axios.get(`${BASE_URL}/mba/api/v1/theatres/${theatreId}`,{headers:{
+        'x-access-token':localStorage.getItem(TOKEN)
+    }})
+
+    return res;
+
+   }
+   catch(err){
+    console.log(err);
+   }
+
+}
