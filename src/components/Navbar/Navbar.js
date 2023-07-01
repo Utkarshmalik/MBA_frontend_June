@@ -3,11 +3,24 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { isUserLoggedIn } from '../../utils/helper';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-const Navbar = ()=>{
+const Navbar = ({filterMovies})=>{
 
     const isLoggedIn = isUserLoggedIn();
     const navigate = useNavigate();
+
+    const [searchValue, onSearchChange] = useState("");
+
+    const onInputChange=(e)=>{
+        onSearchChange(e.target.value);
+
+        if(filterMovies){
+            filterMovies(e.target.value);
+        }
+    }
+
+
 
     const onAuthButtonClick=()=>{
 
@@ -28,7 +41,7 @@ const Navbar = ()=>{
             </div>
 
             <div>
-            <Form.Control size='lg' type="text" placeholder="Search Movie" />
+            <Form.Control size='lg' type="text" placeholder="Search Movie" input={searchValue} onChange={onInputChange} />
             </div>
 
             <div  >
