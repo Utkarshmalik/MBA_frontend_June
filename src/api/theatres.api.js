@@ -50,3 +50,19 @@ export const getTheatresById = async (theatreId)=>{
    }
 
 }
+
+export const updateTheatresById = async (theatreId, updatedData)=>{
+
+       try{
+    const res= await axios.put(`${BASE_URL}/mba/api/v1/theatres/${theatreId}`,updatedData, {headers:{
+        'x-access-token':localStorage.getItem(TOKEN)
+    }})
+
+    return res;
+
+   }
+   catch(err){
+    console.log(err);
+   }
+
+}

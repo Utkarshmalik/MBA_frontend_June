@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom';
 
 function Payments({show,setShow, theatresDetail, movieDetails, selectedSeats, confirmBooking, bookingDetails, closeModel }) {
 
@@ -62,6 +63,10 @@ function Payments({show,setShow, theatresDetail, movieDetails, selectedSeats, co
                             <h5> Booking Confirmed !</h5>
                             <small> Booking Id :  </small>
                             <p className='fw-bolder'> {bookingDetails._id} </p>
+
+                            <Link to="/login">
+                            <p> Go to Landing Page </p>
+                            </Link>
 
                         </div>
                     ):

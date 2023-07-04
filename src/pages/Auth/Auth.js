@@ -1,58 +1,24 @@
 
-import { Formik, Form , Field, ErrorMessage } from "formik";
-import { formValidator } from "../../validators/auth.form.validator";
-import { useAuth } from "../../hooks/auth.hooks";
+
+import {  useLocation} from "react-router-dom";
+import LoginForm from "./LoginForm";
+import SignUpForm from "./SignUpForm";
 
 function Auth(){
 
-  const {initialStates, onLogin} = useAuth();
+  const url = useLocation();
+  const isLoginPage = (url.pathname=="/login");
+  console.log(isLoginPage);
 
-  return <div className="bg-dark vh-100 d-flex justify-content-center align-items-center text-center text-white">
+  return <>
 
-    <div style={{border:"1px solid white "}} className="p-5">
-      <div  className="row ">
+    {isLoginPage &&  <LoginForm/> }
 
-        <h2> Login </h2>
-        
-        <div>
-           <Formik
-              initialValues={initialStates}
-              validate={formValidator}
-              onSubmit={onLogin}
-           >
-         {({ isSubmitting }) => (
-           <Form className="d-flex  flex-column justify-content-center align-items-center">
-             <Field
-               type="text"
-               name="userId"
-               placeholder="Enter your userId"
-               className="form-control m-2"
-             />
-             <ErrorMessage name="userId" component="div" />
+    {!isLoginPage && <SignUpForm/>}  
 
-             <Field
-               type="password"
-               name="password"
-               placeholder="Enter password"
-              className="form-control m-2"
-
-             />
-             <ErrorMessage name="password" component="div" />
-             <button className="form-control m-2" name="submitButton" type="submit" disabled={isSubmitting}>
-               Submit
-             </button>
-
-             <span> {} </span>
-
-           </Form>
-         )}
-       </Formik>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
+  </>
+  
+  
 
 }
 

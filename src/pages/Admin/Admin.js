@@ -120,7 +120,7 @@ function Admin(){
         <CardList counterInfo={counterInfo}/>
         </WidgetContext.Provider>
         <div >
-         { showTheatresTable &&  <TheatresTable theatresList={theatresList}/> }
+         { showTheatresTable &&  <TheatresTable theatresList={theatresList} setTheatersList={setTheatersList} /> }
          { showMoviesTable &&  <MoviesTable moviesList={moviesList}/> }
         { showBookingsTable &&  <BookingsTable bookingsList={bookingsList}/> }
         { showUsersTable &&  <UsersTable usersList={usersList}/> }
